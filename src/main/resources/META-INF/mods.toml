@@ -1,0 +1,43 @@
+
+modLoader="javafml" #mandatory
+
+loaderVersion="[31,)" #mandatory This is typically bumped every Minecraft version by Forge. See our download page for lists of versions.
+
+issueTrackerURL="http://my.issue.tracker/" #optional
+
+[[mods]] #mandatory
+
+modId="aquaticastral" #mandatory
+
+version="1.15.2-1.0.0" #mandatory
+
+displayName="Aquatic Astral" #mandatory
+
+logoFile="examplemod.png" #optional
+
+credits="Thanks to the Astral Sorcery Discord for helping refine the textures." #optional
+
+authors="Piscesdan" #optional
+
+description='''
+A simple mod to add an underwater shrine for Astral Sorcery.
+'''
+
+[[dependencies.examplemod]] #optional
+
+    modId="forge" #mandatory
+
+    mandatory=true #mandatory
+
+    versionRange="[31,)" #mandatory
+
+    ordering="NONE"
+
+    side="BOTH"
+
+[[dependencies.examplemod]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.15.2]"
+    ordering="NONE"
+    side="BOTH"

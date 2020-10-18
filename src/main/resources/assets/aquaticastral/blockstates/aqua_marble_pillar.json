@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "pillartype=top": {
+      "model": "aquaticastral:block/aqua_marble_pillar_top"
+    },
+    "pillartype=middle": {
+      "model": "aquaticastral:block/aqua_marble_pillar"
+    },
+    "pillartype=bottom": {
+      "model": "aquaticastral:block/aqua_marble_pillar_bottom"
+    }
+  }
+}

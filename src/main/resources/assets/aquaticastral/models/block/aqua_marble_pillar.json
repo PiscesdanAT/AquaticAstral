@@ -1,0 +1,7 @@
+{
+  "parent": "astralsorcery:block/pillar",
+  "textures": {
+    "side": "aquaticastral:block/aqua_marble_pillar",
+    "end": "aquaticastral:block/aqua_marble_pillar_inner"
+  }
+}

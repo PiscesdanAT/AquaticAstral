@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "particle": "aquaticastral:block/aqua_marble_runed",
+    "up": "aquaticastral:block/aqua_marble_raw",
+    "down": "aquaticastral:block/aqua_marble_raw",
+    "east": "aquaticastral:block/aqua_marble_runed",
+    "west": "aquaticastral:block/aqua_marble_runed",
+    "north": "aquaticastral:block/aqua_marble_runed",
+    "south": "aquaticastral:block/aqua_marble_runed"
+  }
+}

@@ -1,3 +1,9 @@
 {
-  "block.aquaticastral.aqua_marble_raw": "Aqua Marble"
+  "block.aquaticastral.aqua_marble_arch": "Aqua Marble Arch",
+  "block.aquaticastral.aqua_marble_bricks": "Aqua Marble Bricks",
+  "block.aquaticastral.aqua_marble_chiseled": "Chiseled Aqua Marble",
+  "block.aquaticastral.aqua_marble_engraved": "Engraved Aqua Marble",
+  "block.aquaticastral.aqua_marble_pillar": "Aqua Marble Pillar",
+  "block.aquaticastral.aqua_marble_raw": "Aqua Marble",
+  "block.aquaticastral.aqua_marble_runed": "Runed Aqua Marble"
 }

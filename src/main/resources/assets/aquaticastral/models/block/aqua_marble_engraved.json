@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "aquaticastral:block/aqua_marble_engraved"
+  }
+}

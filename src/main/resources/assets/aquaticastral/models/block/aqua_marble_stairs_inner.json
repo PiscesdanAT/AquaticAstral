@@ -1,0 +1,8 @@
+{
+  "parent": "block/inner_stairs",
+  "textures": {
+    "bottom": "aquaticastral:block/aqua_marble_bricks",
+    "top": "aquaticastral:block/aqua_marble_bricks",
+    "side": "aquaticastral:block/aqua_marble_bricks"
+  }
+}

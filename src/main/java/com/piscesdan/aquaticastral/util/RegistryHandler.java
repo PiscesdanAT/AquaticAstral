@@ -2,7 +2,10 @@ package com.piscesdan.aquaticastral.util;
 
 import com.piscesdan.aquaticastral.blocks.aquamarble.*;
 import hellfirepvp.astralsorcery.common.CommonProxy;
+import hellfirepvp.astralsorcery.common.block.properties.PropertiesMarble;
 import net.minecraft.block.Block;
+import net.minecraft.block.SlabBlock;
+import net.minecraft.block.StairsBlock;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.RegistryObject;
@@ -24,13 +27,17 @@ public class RegistryHandler
     }
 
     //for blocks
-    public static final RegistryObject<BlockAquaMarbleArch> AQUA_MARBLE_ARCH= BLOCKS.register("aqua_marble_arch", BlockAquaMarbleArch::new);
+    public static final RegistryObject<BlockAquaMarbleArch> AQUA_MARBLE_ARCH = BLOCKS.register("aqua_marble_arch", BlockAquaMarbleArch::new);
     public static final RegistryObject<BlockAquaMarbleBricks> AQUA_MARBLE_BRICKS = BLOCKS.register("aqua_marble_bricks", BlockAquaMarbleBricks::new);
     public static final RegistryObject<BlockAquaMarbleChiseled> AQUA_MARBLE_CHISELED = BLOCKS.register("aqua_marble_chiseled", BlockAquaMarbleChiseled::new);
     public static final RegistryObject<BlockAquaMarbleEngraved> AQUA_MARBLE_ENGRAVED = BLOCKS.register("aqua_marble_engraved", BlockAquaMarbleEngraved::new);
     public static final RegistryObject<BlockAquaMarblePillar> AQUA_MARBLE_PILLAR = BLOCKS.register("aqua_marble_pillar", BlockAquaMarblePillar::new);
     public static final RegistryObject<BlockAquaMarbleRaw> AQUA_MARBLE_RAW = BLOCKS.register("aqua_marble_raw", BlockAquaMarbleRaw::new);
     public static final RegistryObject<BlockAquaMarbleRuned> AQUA_MARBLE_RUNED = BLOCKS.register("aqua_marble_runed", BlockAquaMarbleRuned::new);
+
+    //stairs and slabs
+    public static  final RegistryObject<Block> AQUA_MARBLE_STAIRS = BLOCKS.register("aqua_marble_stairs", () -> new StairsBlock(() -> AQUA_MARBLE_RUNED.get().getDefaultState(), PropertiesMarble.defaultMarble()));
+    public static  final RegistryObject<Block> AQUA_MARBLE_SLAB = BLOCKS.register("aqua_marble_slab", () -> new SlabBlock(Block.Properties.from(AQUA_MARBLE_BRICKS.get())));
 
     //itemblocks
     public static final RegistryObject<Item> AQUA_MARBLE_ARCH_ITEM = ITEMS.register("aqua_marble_arch", () -> new BlockItem(AQUA_MARBLE_ARCH.get(), new Item.Properties().group(CommonProxy.ITEM_GROUP_AS)));
@@ -40,4 +47,6 @@ public class RegistryHandler
     public static final RegistryObject<Item> AQUA_MARBLE_PILLAR_ITEM = ITEMS.register("aqua_marble_pillar", () -> new BlockItem(AQUA_MARBLE_PILLAR.get(), new Item.Properties().group(CommonProxy.ITEM_GROUP_AS)));
     public static final RegistryObject<Item> AQUA_MARBLE_RAW_ITEM = ITEMS.register("aqua_marble_raw", () -> new BlockItem(AQUA_MARBLE_RAW.get(), new Item.Properties().group(CommonProxy.ITEM_GROUP_AS)));
     public static final RegistryObject<Item> AQUA_MARBLE_RUNED_ITEM = ITEMS.register("aqua_marble_runed", () -> new BlockItem(AQUA_MARBLE_RUNED.get(), new Item.Properties().group(CommonProxy.ITEM_GROUP_AS)));
+    public static final RegistryObject<Item> AQUA_MARBLE_SLAB_ITEM = ITEMS.register("aqua_marble_slab", () -> new BlockItem(AQUA_MARBLE_SLAB.get(), new Item.Properties().group(CommonProxy.ITEM_GROUP_AS)));
+    public static final RegistryObject<Item> AQUA_MARBLE_STAIRS_ITEM = ITEMS.register("aqua_marble_stairs", () -> new BlockItem(AQUA_MARBLE_STAIRS.get(), new Item.Properties().group(CommonProxy.ITEM_GROUP_AS)));
 }

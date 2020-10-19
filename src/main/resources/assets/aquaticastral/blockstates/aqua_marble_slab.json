@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=top": {
+      "model": "aquaticastral:block/aqua_marble_slab_top"
+    },
+    "type=bottom": {
+      "model": "aquaticastral:block/aqua_marble_slab"
+    },
+    "type=double": {
+      "model": "aquaticastral:block/aqua_marble_bricks"
+    }
+  }
+}

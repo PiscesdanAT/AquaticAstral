@@ -10,7 +10,7 @@ import org.apache.logging.log4j.Logger;
 public class AquaticAstral
 {
     // Directly reference a log4j logger.
-    private static final Logger LOGGER = LogManager.getLogger();
+    public static final Logger LOGGER = LogManager.getLogger();
     public static final String MOD_ID = "aquaticastral";
 
     public AquaticAstral() {

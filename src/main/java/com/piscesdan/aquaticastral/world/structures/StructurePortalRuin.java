@@ -1,14 +1,13 @@
 package com.piscesdan.aquaticastral.world.structures;
 
 import com.mojang.datafixers.Dynamic;
-import com.piscesdan.aquaticastral.util.RegistryHandler;
+import com.piscesdan.aquaticastral.AquaticAstral;
 import com.piscesdan.aquaticastral.world.structures.pieces.PortalRuinPiece;
 import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.structure.ScatteredStructure;
 import net.minecraft.world.gen.feature.structure.Structure;
 import net.minecraft.world.gen.feature.structure.StructureStart;
@@ -19,9 +18,9 @@ import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-public class StructurePortalRuin extends ScatteredStructure<NoFeatureConfig>
+public class StructurePortalRuin extends ScatteredStructure<AquaRuinsConfig>
 {
-    public StructurePortalRuin(Function<Dynamic<?>, ? extends NoFeatureConfig> configFactoryIn)
+    public StructurePortalRuin(Function<Dynamic<?>, ? extends AquaRuinsConfig> configFactoryIn)
     {
         super(configFactoryIn);
     }
@@ -29,7 +28,7 @@ public class StructurePortalRuin extends ScatteredStructure<NoFeatureConfig>
     @Override
     public String getStructureName()
     {
-        return "Portal_Ruin";
+        return AquaticAstral.MOD_ID + ":portal_ruin";
     }
 
     @Override
@@ -59,13 +58,15 @@ public class StructurePortalRuin extends ScatteredStructure<NoFeatureConfig>
 
         public void init(ChunkGenerator<?> generator, TemplateManager manager, int chunkX, int chunkZ, Biome biome)
         {
-            NoFeatureConfig config (NoFeatureConfig)generator.getStructureConfig(biome, RegistryHandler.PORTAL_RUIN);
+            AquaRuinsConfig config = (AquaRuinsConfig)generator.getStructureConfig(biome, this.getStructure());
             int i = chunkX * 16;
             int j = chunkZ * 16;
             BlockPos pos = new BlockPos(i, 90, j);
             Rotation rotation = Rotation.values()[this.rand.nextInt(Rotation.values().length)];
             PortalRuinPiece.func_204041_a(manager, pos, rotation, this.components, this.rand, config);
             this.recalculateStructureSize();
+
+            AquaticAstral.LOGGER.info("WE can find a ruin at: " + pos);
         }
     }
 

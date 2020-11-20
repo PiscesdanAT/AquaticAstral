@@ -2,7 +2,10 @@ package com.piscesdan.aquaticastral.util;
 
 import com.piscesdan.aquaticastral.blocks.aquamarble.*;
 import com.piscesdan.aquaticastral.crafting.AquaMarbleRecipe;
+import com.piscesdan.aquaticastral.world.structures.AquaRuinsConfig;
+import com.piscesdan.aquaticastral.world.structures.HouseStructure;
 import com.piscesdan.aquaticastral.world.structures.StructurePortalRuin;
+import com.piscesdan.aquaticastral.world.structures.pieces.HousePieces;
 import com.piscesdan.aquaticastral.world.structures.pieces.PortalRuinPiece;
 import hellfirepvp.astralsorcery.common.CommonProxy;
 import hellfirepvp.astralsorcery.common.block.properties.PropertiesMarble;
@@ -16,7 +19,6 @@ import net.minecraft.util.registry.Registry;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.structure.IStructurePieceType;
-import net.minecraft.world.gen.feature.structure.StructurePiece;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.RegistryObject;
@@ -29,7 +31,7 @@ import java.util.Locale;
 
 import static com.piscesdan.aquaticastral.AquaticAstral.MOD_ID;
 
-@Mod.EventBusSubscriber(bus = Bus.MOD, modid = MOD_ID)
+@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, modid = MOD_ID)
 public class RegistryHandler
 {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, MOD_ID);
@@ -45,6 +47,7 @@ public class RegistryHandler
     }
 
     public static IStructurePieceType PORTAL_RUIN_PIECE = PortalRuinPiece.Piece::new;
+    public static IStructurePieceType HOUSE_PIECE = HousePieces.Piece::new;
 
     //for blocks
     public static final RegistryObject<BlockAquaMarbleArch> AQUA_MARBLE_ARCH = BLOCKS.register("aqua_marble_arch", BlockAquaMarbleArch::new);
@@ -56,7 +59,7 @@ public class RegistryHandler
     public static final RegistryObject<BlockAquaMarbleRuned> AQUA_MARBLE_RUNED = BLOCKS.register("aqua_marble_runed", BlockAquaMarbleRuned::new);
 
     //stairs and slabs
-    public static  final RegistryObject<Block> AQUA_MARBLE_STAIRS = BLOCKS.register("aqua_marble_stairs", () -> new StairsBlock(() -> AQUA_MARBLE_RUNED.get().getDefaultState(), PropertiesMarble.defaultMarble()));
+    public static  final RegistryObject<Block> AQUA_MARBLE_STAIRS = BLOCKS.register("aqua_marble_stairs", () -> new StairsBlock(() -> AQUA_MARBLE_BRICKS.get().getDefaultState(), PropertiesMarble.defaultMarble()));
     public static  final RegistryObject<Block> AQUA_MARBLE_SLAB = BLOCKS.register("aqua_marble_slab", () -> new SlabBlock(Block.Properties.from(AQUA_MARBLE_BRICKS.get())));
 
     //itemblocks
@@ -71,12 +74,14 @@ public class RegistryHandler
     public static final RegistryObject<Item> AQUA_MARBLE_STAIRS_ITEM = ITEMS.register("aqua_marble_stairs", () -> new BlockItem(AQUA_MARBLE_STAIRS.get(), new Item.Properties().group(CommonProxy.ITEM_GROUP_AS)));
 
     //structures
-    public static final RegistryObject<StructurePortalRuin> PORTAL_RUIN = FEATURES.register("portal_ruin", () -> new StructurePortalRuin(NoFeatureConfig::deserialize));
+    public static final RegistryObject<StructurePortalRuin> PORTAL_RUIN = FEATURES.register("portal_ruin", () -> new StructurePortalRuin(AquaRuinsConfig::deserialize));
+    public static final RegistryObject<HouseStructure> HOUSE = FEATURES.register("house", () -> new HouseStructure(NoFeatureConfig::deserialize));
 
     //pieces
     @SubscribeEvent
     public static void registerStructurePieces(RegistryEvent.Register<Feature<?>>  event)
     {
         Registry.register(Registry.STRUCTURE_PIECE, "PORTAL_RUIN".toLowerCase(Locale.ROOT), PORTAL_RUIN_PIECE);
+        Registry.register(Registry.STRUCTURE_PIECE, "HOUSE".toLowerCase(Locale.ROOT), HOUSE_PIECE);
     }
 }

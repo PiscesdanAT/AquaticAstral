@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "MM",
+    "MM"
+  ],
+  "key": {
+    "M": {
+      "item": "aquaticastral:aqua_marble_raw"
+    }
+  },
+  "result": {
+    "item": "aquaticastral:aqua_marble_bricks",
+    "count": 4
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "MCM"
+  ],
+  "key": {
+    "M": {
+      "item": "aquaticastral:aqua_marble_raw"
+    },
+    "C": {
+      "item": "aquaticastral:aqua_marble_chiseled"
+    }
+  },
+  "result": {
+    "item": "aquaticastral:aqua_marble_runed",
+    "count": 3
+  }
+}

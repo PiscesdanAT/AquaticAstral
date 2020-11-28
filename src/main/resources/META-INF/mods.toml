@@ -15,29 +15,36 @@ displayName="Aquatic Astral" #mandatory
 
 logoFile="examplemod.png" #optional
 
-credits="Thanks to the Astral Sorcery Discord for helping refine the textures." #optional
+credits="Thanks to the Astral Sorcery Discord for helping refine the textures. A very special thanks to HellFirePvP for answering my development questions." #optional
 
 authors="Piscesdan" #optional
 
 description='''
-A simple mod to add an underwater shrine for Astral Sorcery.
+A simple mod that adds a blue*ish marble variant to Astral Sorcery.
 '''
 
-[[dependencies.examplemod]] #optional
+[[dependencies.aquaticastral]]
 
     modId="forge" #mandatory
 
     mandatory=true #mandatory
 
-    versionRange="[31,)" #mandatory
+    versionRange="[31.2.37,)" #mandatory
 
     ordering="NONE"
 
     side="BOTH"
 
-[[dependencies.examplemod]]
+[[dependencies.aquaticastral]]
     modId="minecraft"
     mandatory=true
     versionRange="[1.15.2]"
     ordering="NONE"
     side="BOTH"
+
+[[dependencies.aquaticastral]]
+modId="astralsorcery"
+mandatory=true
+versionRange="[1.12.13,)"
+ordering="NONE"
+side="BOTH"
